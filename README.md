@@ -1,7 +1,8 @@
 
 # CyberMastersAcademy
 Repo for developing Cyber Master Academy learning hub
-![Screenshot from 2025-04-16 20-19-39](https://github.com/user-attachments/assets/af21dbbf-1f96-4d38-876e-eb77077f3a1d)
+![Screenshot from 2025-04-17 14-31-42](https://github.com/user-attachments/assets/8a4f2a32-dc1b-4497-a342-d666c8f38fee)
+
 CyberMasters Academy is more than just a tech education platform—it's a community driven by innovation, inclusion, and the power of collaboration. Whether you're a beginner exploring the world of coding or an experienced developer looking to give back, we welcome everyone to contribute and help shape the future of tech.
 
 Together, we can create, learn, and empower the next generation of developers. Join us and be part of something bigger—where your knowledge and skills make a real impact!
