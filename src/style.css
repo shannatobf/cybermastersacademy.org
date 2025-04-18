@@ -1,10 +1,21 @@
 /* Global Styles */
 body {
-  margin: 0;
+  /* margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fffefc;
-  color: #1a1a1a;
+  background-color: #fdfdfd;
+  color: #1f2937;
+  line-height: 1.6; */
+  font-family: 'Inter', sans-serif;
+  background-color: #fdfdfd;
+  color: #1f2937;
   line-height: 1.6;
+
+}
+
+/* Headings */
+h1, h2, h3, .logo {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
 }
 
 .container {
@@ -14,13 +25,14 @@ body {
 }
 
 a {
-  color: #222;
+  color: #1f2937;
   text-decoration: none;
   margin: 0 1rem;
+  transition: color 0.3s;
 }
 
 a:hover {
-  color: #e1b800;
+  color: #f43f5e; /* soft red hover */
 }
 
 h1, h2, h3 {
@@ -32,7 +44,7 @@ h1, h2, h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #fef8e7;
+  background: #ffffff;
   padding: 1rem 2rem;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
@@ -40,14 +52,14 @@ h1, h2, h3 {
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #d4af37;
+  color: #eab308;
 }
 
 /* Hero Section */
 .hero {
   text-align: center;
   padding: 4rem 1rem;
-  background: linear-gradient(to bottom, #fff8e1, #fff);
+  background: linear-gradient(to bottom right, #fff7ed, #fefce8);
   border-radius: 12px;
 }
 
@@ -56,11 +68,12 @@ h1, h2, h3 {
 }
 
 .hero .highlight {
-  color: #e1b800;
+  color: #eab308;
 }
 
 .cta-button {
-  background: #f9c80e;
+  background: #eab308;
+  color: white;
   border: none;
   padding: 0.8rem 1.6rem;
   border-radius: 8px;
@@ -71,16 +84,16 @@ h1, h2, h3 {
 }
 
 .cta-button:hover {
-  background: #e6b800;
+  background: #ca8a04;
 }
 
 .cta-button.dark {
-  background: #1a1a1a;
+  background: #1f2937;
   color: white;
 }
 
 .cta-button.dark:hover {
-  background: #333;
+  background: #374151;
 }
 
 /* Features */
@@ -98,16 +111,17 @@ h1, h2, h3 {
 }
 
 .card {
-  background: #fffaf2;
+  background: #ffffff;
   padding: 2rem;
   border-radius: 16px;
   width: 300px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-  transition: transform 0.3s;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
 }
 
 .icon {
@@ -117,7 +131,7 @@ h1, h2, h3 {
 
 /* Footer CTA */
 .footer-cta {
-  background: #000;
+  background: linear-gradient(to right, #facc15, #f43f5e); /* yellow to rose */
   color: white;
   text-align: center;
   padding: 4rem 2rem;
