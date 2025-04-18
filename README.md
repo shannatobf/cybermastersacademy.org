@@ -1,5 +1,5 @@
 
-# CyberMastersAcademy
+CyberMastersAcademy
 Repo for developing Cyber Master Academy learning hub!
 
 ![Screenshot from 2025-04-17 19-33-20](https://github.com/user-attachments/assets/a831e886-93d7-4f1e-8db3-a67b06d3f217)
