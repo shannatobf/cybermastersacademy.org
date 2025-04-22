@@ -77,7 +77,7 @@ export default function Blog() {
         </section>
 
         <section className="blog-submission">
-          <h2 className="section-title">✍️ Submit Your Blog Post</h2>
+          <h2 className="section-title">✍️ Submit Your Questions!</h2>
           {submitted ? (
             <p className="submission-message">✅ Blog Post Submitted for Approval!</p>
           ) : (
