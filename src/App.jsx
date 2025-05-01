@@ -56,7 +56,8 @@ export default function App() {
   return (
     <Router>
       <header className="navbar">
-        <h1 className="logo">CyberMastersAcademy.org </h1>
+      <img src= {logoImage} alt="Cyber Masters Academy Logo" className="logo" />
+      <h6 className="logo">CyberMastersAcademy.org </h6>
         <h5>💻 open source computer science organization designed to make learning, simple. 🛠️  </h5>
         <nav>
           <Link to="/">Home</Link>
