@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-import './style.css';
 
 export default function News() {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    // Mocking tech news data for now
     const mockNews = [
       {
         title: "OpenAI Releases GPT-5 Sneak Peek",
@@ -33,20 +31,32 @@ export default function News() {
   }, []);
 
   return (
-    <div className="container">
-      <section className="hero">
-        <h1 className="hero-title">📰 Tech News Central</h1>
-        <p className="hero-subtitle">Stay updated with the latest developments in technology and innovation.</p>
-      </section>
+    <div className="px-4 py-10 max-w-6xl mx-auto">
+      <header className="text-center mb-10">
+        <h1 className="text-4xl font-bold text-gray-800 mb-2">📰 Tech News Central</h1>
+        <p className="text-gray-600 text-lg">
+          Stay updated with the latest developments in technology and innovation.
+        </p>
+      </header>
 
-      <section className="news-list">
-        {articles.map((article, idx) => (
-          <div key={idx} className="blog-card">
-            <h2>🧠 {article.title}</h2>
-            <p className="news-date">🗓️ {article.date}</p>
-            <p>{article.description}</p>
-            <button className="cta-button">Read More</button>
-          </div>
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {articles.map((article, index) => (
+          <article
+            key={`${article.title}-${index}`}
+            className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300 border border-gray-100"
+          >
+            <h2 className="text-xl font-semibold text-gray-800 mb-2">🧠 {article.title}</h2>
+            <time
+              className="block text-sm text-gray-500 mb-2"
+              dateTime={new Date(article.date).toISOString()}
+            >
+              🗓️ {article.date}
+            </time>
+            <p className="text-gray-700 mb-4">{article.description}</p>
+            <button className="mt-auto inline-block px-4 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition">
+              Read More
+            </button>
+          </article>
         ))}
       </section>
     </div>
