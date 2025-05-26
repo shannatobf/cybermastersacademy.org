@@ -3,7 +3,8 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  base: '/cybermastersacademy.org/', // <-- move base here
   server: {
-    port: 5173, // 👈 sets the dev server port
-  },
+    port: 5173
+  }
 })

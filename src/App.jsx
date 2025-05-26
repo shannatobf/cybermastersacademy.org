@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
 import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
 import Blog from './Blog';
 import Courses from './Courses';
@@ -103,9 +103,9 @@ export default function App() {
     <Auth0Provider
       domain={domain}
       clientId={clientId}
-      authorizationParams={{ redirect_uri: window.location.origin }}
+      authorizationParams={{ redirect_uri: "https://shannatobf.github.io/cybermastersacademy.org" }}
     >
-      <Router>
+      <BrowserRouter basename="/cybermastersacademy.org">
         <Header />
         <main>
           <Routes>
@@ -116,7 +116,7 @@ export default function App() {
             <Route path="/JobsInTech" element={<JobsInTech />} />
           </Routes>
         </main>
-      </Router>
+      </BrowserRouter>
     </Auth0Provider>
   );
 }
