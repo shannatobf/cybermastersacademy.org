@@ -25,7 +25,7 @@
   align-items: center;
   background: var(--terminal-surface);
   border-bottom: 2px solid var(--terminal-border);
-  padding: 1.2rem 2rem 1.2rem 1.5rem;
+  padding: 0;
   border-radius: 0 0 var(--border-radius) var(--border-radius);
   box-shadow: 0 4px 24px 0 rgba(var(--primary-accent-rgb), 0.08);
   position: relative;
@@ -64,6 +64,7 @@
   outline: none;
   transition: border-color 0.2s;
   box-shadow: 0 2px 8px 0 rgba(var(--primary-accent-rgb), 0.10);
+  position: relative;
   cursor: pointer;
 }
 .theme-dropdown:focus {
@@ -73,7 +74,7 @@
 .trivia-container {
   background: var(--terminal-surface);
   border-radius: var(--border-radius);
-  margin: 2.5rem auto 0;
+  margin: 0.1rem auto 0;
   max-width: 900px;
   box-shadow: 0 8px 32px 0 rgba(var(--primary-accent-rgb), 0.10);
   border: 1.5px solid var(--terminal-border);
@@ -364,7 +365,7 @@
 @media (max-width: 800px) {
   .trivia-container {
     max-width: 98vw;
-    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+    padding: 2.2rem .5rem 1.2rem 0.5rem;
   }
   .question-box {
     padding: 1.2rem 0.7rem;

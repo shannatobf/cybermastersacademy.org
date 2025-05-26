@@ -20,8 +20,9 @@
   font-family: var(--font-ui);
 }
 .blog-terminal-container {
-  max-width: 900px;
-  margin: 2rem auto 8rem;
+  max-width: 2000px;
+  margin: 0;
+  padding-top: 1rem; 
   border-radius: var(--border-radius);
   background: var(--terminal-bg);
   color: var(--terminal-text);
@@ -42,17 +43,28 @@
 
 .blog-email-footer {
   width: 100%;
+  position: relative;
   display: flex;
+  z-index: 10;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--glass-bg, var(--terminal-surface));
+  background: var(--terminal-surface);
   border-top: 1.5px solid var(--glass-border, var(--terminal-border));
   box-shadow: 0 -2px 24px 0 rgba(var(--primary-accent-rgb), 0.08);
   padding: 2rem 2.5rem 1.5rem 2.5rem;
   gap: 0.75rem;
   margin: 0;
   border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+/* Theme selector visibility */
+.theme-dropdown-container {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 20;
+  display: flex;
+  align-items: center;
 }
 
 .blog-email-footer-content,
@@ -230,21 +242,26 @@
   -webkit-background-clip: initial;
   font-weight: 700;
 }
-
 @media (max-width: 800px) {
-  .blog-terminal-surface {
+  .blog-surface {
     max-width: 98vw;
     padding: 1.2rem 0.5rem 1.2rem 0.5rem;
   }
   .blog-hero h1 {
     font-size: 1.3rem;
   }
-  .blog-motivation-item {
+  .blog-highlight-card,
+  .about-team-card {
     padding: 1rem 0.7rem;
     font-size: 0.98rem;
   }
+  .blog-team-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
 }
-/* ...existing code... */
+
 
 /* --- Blog Email Footer Terminal Style --- */
 .blog-email-footer {
@@ -259,6 +276,7 @@
   gap: 0.75rem;
   margin-top: 2.5rem;
   border-radius: 0 0 var(--border-radius) var(--border-radius);
+  position: relative;
 }
 
 .blog-email-footer-content h4 {

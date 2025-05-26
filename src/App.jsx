@@ -7,6 +7,8 @@ import CodingTrivia from "./components/CodingTrivia";
 import JobsInTech from './JobsInTech';
 import logoImage from './cma_logo.jpg';
 import './App.css';
+import React, { useState } from "react";
+
 
 // Auth0 config
 const domain = "dev-uqbkcw80kyqc88jz.us.auth0.com";
@@ -30,27 +32,38 @@ function AuthButtons() {
   );
 }
 
-// Modern, immersive Header
 function Header() {
   const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="cma-header">
       <div className="cma-header-inner">
-        <div className="cma-header-left">
+        <div className="cma-header-logo-wrap">
           <img src={logoImage} alt="Cyber Masters Academy Logo" className="cma-logo" />
           <span className="cma-title">Cyber Masters Academy</span>
         </div>
-        <nav className="cma-nav">
-          <Link to="/" className={location.pathname === "/" ? "active" : ""}>Home</Link>
-          <Link to="/about" className={location.pathname === "/about" ? "active" : ""}>About</Link>
-          <Link to="/courses" className={location.pathname === "/courses" ? "active" : ""}>Courses</Link>
-          <Link to="/blog" className={location.pathname === "/blog" ? "active" : ""}>Blog</Link>
-          <Link to="/JobsInTech" className={location.pathname === "/JobsInTech" ? "active" : ""}>Jobs In Tech</Link>
-        </nav>
+        <button
+          className={`hamburger${menuOpen ? " open" : ""}`}
+          onClick={() => setMenuOpen(prev => !prev)}
+          aria-label="Toggle navigation"
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </div>
+      <nav className={`cma-nav${menuOpen ? " open" : ""}`}>
+        <Link to="/" className={location.pathname === "/" ? "active" : ""} onClick={() => setMenuOpen(false)}>Home</Link>
+        <Link to="/about" className={location.pathname === "/about" ? "active" : ""} onClick={() => setMenuOpen(false)}>About</Link>
+        <Link to="/courses" className={location.pathname === "/courses" ? "active" : ""} onClick={() => setMenuOpen(false)}>Courses</Link>
+        <Link to="/blog" className={location.pathname === "/blog" ? "active" : ""} onClick={() => setMenuOpen(false)}>Blog</Link>
+        <Link to="/JobsInTech" className={location.pathname === "/JobsInTech" ? "active" : ""} onClick={() => setMenuOpen(false)}>Jobs In Tech</Link>
+        <Link to="/coding-trivia" className={location.pathname === "/coding-trivia" ? "active" : ""} onClick={() => setMenuOpen(false)}>Coding Trivia</Link>
         <div className="cma-header-right">
           <AuthButtons />
         </div>
-      </div>
+      </nav>
     </header>
   );
 }
@@ -115,6 +128,7 @@ export default function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/JobsInTech" element={<JobsInTech />} />
+            <Route path="/coding-trivia" element={<CodingTrivia />} />
           </Routes>
         </main>
       </BrowserRouter>
