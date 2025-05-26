@@ -3,6 +3,7 @@ import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
 import Blog from './Blog';
 import Courses from './Courses';
 import About from './About';
+import CodingTrivia from "./components/CodingTrivia";
 import JobsInTech from './JobsInTech';
 import logoImage from './cma_logo.jpg';
 import './App.css';

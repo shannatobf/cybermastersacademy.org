@@ -229,3 +229,57 @@ body {
     font-size: 1rem;
   }
 }
+/* Responsive header */
+@media (max-width: 700px) {
+  .cma-header-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.7rem;
+    padding: 0 0.5rem;
+    min-height: unset;
+  }
+  .cma-header-left {
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+  .cma-nav {
+    gap: 0.3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  .cma-title {
+    font-size: 1rem;
+  }
+  .cma-header-right {
+    justify-content: center;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
+
+/* Responsive cards and features */
+@media (max-width: 900px) {
+  .cards {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .card {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Make hero section text and buttons scale */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .cta-button {
+    font-size: 1rem;
+    padding: 0.5em 1em;
+  }
+}
