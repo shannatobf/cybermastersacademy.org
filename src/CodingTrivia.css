@@ -64,7 +64,7 @@
   outline: none;
   transition: border-color 0.2s;
   box-shadow: 0 2px 8px 0 rgba(var(--primary-accent-rgb), 0.10);
-  position: relative;
+  position: sticky;
   cursor: pointer;
 }
 .theme-dropdown:focus {
@@ -370,5 +370,72 @@
   .question-box {
     padding: 1.2rem 0.7rem;
     font-size: 0.98rem;
+  }
+}
+/* Terminal Header and Dots */
+.terminal-header {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  background: var(--terminal-surface);
+  border-bottom: 1px solid var(--terminal-border);
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 8px;
+  margin-right: 1.2rem;
+}
+
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px 2px rgba(0,0,0,0.12);
+}
+
+.terminal-dot.red { 
+  background: #ff5f57; 
+}
+
+.terminal-dot.yellow { 
+  background: #febc2e; 
+}
+
+.terminal-dot.green { 
+  background: #28ca42; 
+}
+
+.terminal-title {
+  color: var(--terminal-text);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  margin-left: 1rem;
+}
+.terminal-title {
+  color: var(--terminal-text);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.terminal-title::before {
+  content: '➜';
+  color: var(--success-accent);
+  margin-right: 0.5rem;
+}
+
+/* Update mobile styles */
+@media (max-width: 800px) {
+  .terminal-title {
+    font-size: 0.8rem;
+  }
+  
+  .terminal-title::before {
+    font-size: 0.9rem;
   }
 }

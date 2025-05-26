@@ -64,7 +64,45 @@ const comprehensionQuestions = [
     answer: "Hyper Text Markup Language",
     explanation: "HTML stands for Hyper Text Markup Language. It is the standard markup language for creating web pages."
   },
-  // ...add more questions
+  {  // ...add more questions{
+    question: "What is a Function in programming?",
+    options: ["A variable", "A reusable block of code", "A data type", "A loop statement"],
+    answer: "A reusable block of code",
+    explanation: "A function is a reusable block of code that performs a specific task when called."
+  },
+  {
+    question: "What is React.js?",
+    options: [
+      "A database system",
+      "A JavaScript library for building user interfaces",
+      "A programming language",
+      "A web server"
+    ],
+    answer: "A JavaScript library for building user interfaces",
+    explanation: "React is a popular JavaScript library developed by Facebook for building interactive user interfaces using components."
+  },
+  {
+    question: "What is an Array in programming?",
+    options: [
+      "A single value",
+      "A collection of ordered values",
+      "A function type",
+      "A programming language"
+    ],
+    answer: "A collection of ordered values",
+    explanation: "An array is a data structure that stores multiple values in a single variable, accessed by an index."
+  },
+  {
+    question: "What is the purpose of npm?",
+    options: [
+      "To write JavaScript code",
+      "To manage Node.js packages and dependencies",
+      "To create databases",
+      "To style web pages"
+    ],
+    answer: "To manage Node.js packages and dependencies",
+    explanation: "npm (Node Package Manager) is the default package manager for Node.js, used to install and manage project dependencies."
+  }
 ];
 
 const codingChallenges = [
@@ -75,15 +113,69 @@ const codingChallenges = [
     explanation: "You simply return the sum of the two parameters.",
     validate: code => /return\s+a\s*\+\s*b\s*;?/i.test(code)
   },
+    {
+    prompt: "Write a function that checks if a string is a palindrome.",
+    starterCode: "function isPalindrome(str) {\n  // your code here\n}",
+    answer: "function isPalindrome(str) {\n  const cleaned = str.toLowerCase().replace(/[^a-z0-9]/g, '');\n  return cleaned === cleaned.split('').reverse().join('');\n}",
+    explanation: "Remove non-alphanumeric characters, convert to lowercase, then compare forward and reversed versions.",
+    validate: code => /cleaned\s*===\s*cleaned\.split\(['"]['"]?\)\.reverse\(\)\.join\(['"]['"]?\)/i.test(code)
+  },
+  {
+    prompt: "Write a function that counts occurrences of a character in a string.",
+    starterCode: "function countChar(str, char) {\n  // your code here\n}",
+    answer: "function countChar(str, char) {\n  return str.split(char).length - 1;\n}",
+    explanation: "Split the string by the character and count the resulting parts minus 1.",
+    validate: code => /return\s+str\.split\(char\)\.length\s*-\s*1/i.test(code)
+  },
+  {
+    prompt: "Write a function that finds the average of numbers in an array.",
+    starterCode: "function average(numbers) {\n  // your code here\n}",
+    answer: "function average(numbers) {\n  return numbers.reduce((sum, num) => sum + num, 0) / numbers.length;\n}",
+    explanation: "Use reduce to sum all numbers, then divide by the array length.",
+    validate: code => /reduce\(\(.*\).*\/.*length/i.test(code)
+  },
+  {
+    prompt: "Write a function that returns the sum of two numbers.",
+    starterCode: "function sum(a, b) {\n  // your code here\n}",
+    answer: "function sum(a, b) {\n  return a + b;\n}",
+    explanation: "You simply return the sum of the two parameters using the + operator.",
+    validate: code => /return\s+a\s*\+\s*b\s*;?/i.test(code)
+  },
+  {
+    prompt: "Write a function that checks if a number is even.",
+    starterCode: "function isEven(num) {\n  // your code here\n}",
+    answer: "function isEven(num) {\n  return num % 2 === 0;\n}",
+    explanation: "Using the modulo operator (%), we check if there's no remainder when divided by 2.",
+    validate: code => /return\s+num\s*%\s*2\s*===?\s*0\s*;?/i.test(code)
+  },
+  {
+    prompt: "Write a function that reverses a string.",
+    starterCode: "function reverseString(str) {\n  // your code here\n}",
+    answer: "function reverseString(str) {\n  return str.split('').reverse().join('');\n}",
+    explanation: "Split the string into an array, reverse it, and join it back into a string.",
+    validate: code => /return\s+str\.split\(['"]['"]?\)\.reverse\(\)\.join\(['"]['"]?\)\s*;?/i.test(code)
+  },
+  {
+    prompt: "Write a function that returns the first character of a string.",
+    starterCode: "function firstChar(str) {\n  // your code here\n}",
+    answer: "function firstChar(str) {\n  return str[0];\n}",
+    explanation: "Access the first character using index 0 or the charAt(0) method.",
+    validate: code => /return\s+str\s*\[\s*0\s*\]\s*;?|return\s+str\.charAt\s*\(\s*0\s*\)\s*;?/i.test(code)
+  }
   // ...add more challenges
 ];
 
 const mentorPraises = [
-  "Great job!",
-  "You're on fire!",
-  "Keep it up!",
-  "Excellent work!",
-  "You're mastering this!"
+  "Great job! 🌟",
+  "You're on fire! 🔥",
+  "Keep it up! 💪",
+  "Excellent work! 👏",
+  "You're mastering this! 🎯",
+  "Outstanding! 🌈",
+  "Perfect solution! ⭐",
+  "Brilliant thinking! 💡",
+  "You're crushing it! 🚀",
+  "Fantastic work! 🎉"
 ];
 
 const CodingTrivia = () => {
@@ -250,7 +342,10 @@ const CodingTrivia = () => {
       root.style.setProperty(key, vars[key]);
     }
   }, [theme]);
-
+const getTerminalCommand = () => {
+  const page = window.location.pathname.split('/').pop() || 'home';
+  return `cyber-masters-academy:~$ ${page}`;
+};
   return (
     <div ref={triviaRef} className={`trivia-root theme-${theme}`} data-theme={theme}>
       <div className="trivia-container">
@@ -260,7 +355,9 @@ const CodingTrivia = () => {
             <span className="terminal-dot red" />
             <span className="terminal-dot yellow" />
             <span className="terminal-dot green" />
+             <span className="terminal-title">{getTerminalCommand()}</span>
           </div>
+         
           <div className="theme-dropdown-container">
             <select
               className="theme-dropdown"
