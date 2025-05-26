@@ -1,44 +1,63 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
-import './style.css';
-import Blog from './Blog'; // Adjust path if your structure is different
+import Blog from './Blog';
 import Courses from './Courses';
+import About from './About';
 import JobsInTech from './JobsInTech';
-import News from './News';
-import logoImage from './cma_logo.jpg'; // import logo
+import logoImage from './cma_logo.jpg';
+import './App.css';
 
 // Auth0 config
 const domain = "dev-uqbkcw80kyqc88jz.us.auth0.com";
 const clientId = "jodozCrja2uStkOWkWS1MIC4NKjzOSWU";
 
-// Simple Auth Buttons component for login/logout
+// Auth Buttons
 function AuthButtons() {
   const { loginWithRedirect, logout, isAuthenticated, user, isLoading } = useAuth0();
-
   if (isLoading) return <div>Loading...</div>;
-
   return (
-    <div className="auth-buttons" style={{ marginLeft: 'auto' }}>
+    <div className="auth-buttons">
       {isAuthenticated ? (
         <>
           <span style={{ marginRight: '10px' }}>Welcome, {user.name || user.email}!</span>
-          <button onClick={() => logout({ returnTo: window.location.origin })}>
-            Logout
-          </button>
+          <button onClick={() => logout({ returnTo: window.location.origin })}>Logout</button>
         </>
       ) : (
-        <button onClick={() => loginWithRedirect()}>
-          Login
-        </button>
+        <button onClick={() => loginWithRedirect()}>Login</button>
       )}
     </div>
   );
 }
 
+// Modern, immersive Header
+function Header() {
+  const location = useLocation();
+  return (
+    <header className="cma-header">
+      <div className="cma-header-inner">
+        <div className="cma-header-left">
+          <img src={logoImage} alt="Cyber Masters Academy Logo" className="cma-logo" />
+          <span className="cma-title">Cyber Masters Academy</span>
+        </div>
+        <nav className="cma-nav">
+          <Link to="/" className={location.pathname === "/" ? "active" : ""}>Home</Link>
+          <Link to="/about" className={location.pathname === "/about" ? "active" : ""}>About</Link>
+          <Link to="/courses" className={location.pathname === "/courses" ? "active" : ""}>Courses</Link>
+          <Link to="/blog" className={location.pathname === "/blog" ? "active" : ""}>Blog</Link>
+          <Link to="/JobsInTech" className={location.pathname === "/JobsInTech" ? "active" : ""}>Jobs In Tech</Link>
+        </nav>
+        <div className="cma-header-right">
+          <AuthButtons />
+        </div>
+      </div>
+    </header>
+  );
+}
+
+// Home page (immersive, full-width)
 function Home() {
   return (
-    <div className="container">
+    <div className="immersive-container">
       {/* Hero Section */}
       <section className="hero">
         <h1>The Future of Learning is <span className="highlight">Open</span></h1>
@@ -47,7 +66,6 @@ function Home() {
         </p>
         <button className="cta-button">Explore Jobs in Tech</button>
       </section>
-
       {/* Features */}
       <section className="features">
         <h2>What You’ll Discover</h2>
@@ -59,8 +77,8 @@ function Home() {
           </div>
           <div className="card">
             <div className="icon">📍📰⚡➡️</div>
-            <h3>News</h3>
-            <p>Keep up with the latest tech news. Use CyberMastersAcademy.org intel to produce reports, interviews, presentations, and so on!</p>
+            <h3>Coding Trivia</h3>
+            <p>Be Prepared. Use CyberMastersAcademy.org to unlock your full potential in Tech!</p>
           </div>
           <div className="card">
             <div className="icon">🌐</div>
@@ -69,8 +87,7 @@ function Home() {
           </div>
         </div>
       </section>
-
-      {/* FOOTER SECTION */}
+      {/* Footer Section */}
       <section className="footer-cta">
         <button className="cta-button dark">Explore Courses</button>
         <h2>2025 Cyber Masters Academy </h2>
@@ -89,31 +106,14 @@ export default function App() {
       authorizationParams={{ redirect_uri: window.location.origin }}
     >
       <Router>
-        <header className="navbar" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <img src={logoImage} alt="Cyber Masters Academy Logo" className="logo" />
-          <h3 className="logo">CyberMastersAcademy.org</h3>
-          <h5>💻 open source computer science organization designed to make learning, simple. 🛠️</h5>
-
-          <nav style={{ display: 'flex', gap: '1rem' }}>
-            <Link to="/">Home</Link>
-            <Link to="/courses">Courses</Link>
-            <Link to="/blog">Blog</Link>
-            <Link to="/JobsInTech">Jobs In Tech</Link>
-            <Link to="/News">News</Link>
-            <Link to="/contact">About</Link>
-          </nav>
-
-          {/* Auth buttons at the right side */}
-          <AuthButtons />
-        </header>
-
+        <Header />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/JobsInTech" element={<JobsInTech />} />
-            <Route path="/News" element={<News />} />
           </Routes>
         </main>
       </Router>

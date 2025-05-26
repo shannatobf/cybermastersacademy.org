@@ -1,110 +1,97 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import './style.css';
+import React, { useState } from "react";
+import "./Blog.css";
+
+const motivators = [
+  { icon: "💡", title: "You Belong in Tech", message: "No matter your background, you can master computer science. We’ll help you every step of the way." },
+  { icon: "🚀", title: "Launch Your Potential", message: "Every coder starts somewhere. The only difference is persistence—and you’ve got it." },
+  { icon: "🧑‍💻", title: "Mentorship That Matters", message: "Real mentors. Real answers. Real encouragement. You’re never alone at Cyber Masters Academy." },
+  { icon: "🔓", title: "Unlock New Skills", message: "Every challenge is a chance to grow. We turn confusion into confidence, one lesson at a time." },
+  { icon: "🌱", title: "Grow With Us", message: "Celebrate your wins, learn from your mistakes, and keep moving forward. We’re cheering for you!" }
+];
 
 export default function Blog() {
-  const [likes, setLikes] = useState([0, 0, 0]);
-  const [dislikes, setDislikes] = useState([0, 0, 0]);
-  const [userPost, setUserPost] = useState({ title: '', description: '' });
-  const [submitted, setSubmitted] = useState(false);
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
 
-  const handleLike = (index) => {
-    const updatedLikes = [...likes];
-    updatedLikes[index]++;
-    setLikes(updatedLikes);
+  const handleSubscribe = () => {
+    if (email.includes("@")) setSubscribed(true);
   };
-
-  const handleDislike = (index) => {
-    const updatedDislikes = [...dislikes];
-    updatedDislikes[index]++;
-    setDislikes(updatedDislikes);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setUserPost({ title: '', description: '' });
-  };
-
-  const posts = [
-    {
-      title: "🚀 Getting Started with Web Development",
-      description: "Discover how to kick off your coding journey using modern tools and frameworks.",
-      date: "April 17, 2025"
-    },
-    {
-      title: "🧠 Expert Tips: Writing Clean Code",
-      description: "Learn best practices to keep your code readable, efficient, and scalable.",
-      date: "April 16, 2025"
-    },
-    {
-      title: "🌐 Open Source & You",
-      description: "Why contributing to open source accelerates your growth and career.",
-      date: "April 15, 2025"
-    }
-  ];
 
   return (
-    <div className="container">
-      <div className="navbar-inner">
-        <nav className="nav-links">
-          {/* Add navigation links back later if needed */}
-        </nav>
+    <div className="blog-root">
+      <div className="blog-terminal-container">
+        <header className="blog-terminal-header">
+          <div className="blog-terminal-dots">
+            <span className="dot red" />
+            <span className="dot yellow" />
+            <span className="dot green" />
+          </div>
+          <span className="blog-terminal-title">cyber-masters-academy:~$ Blog</span>
+        </header>
+        <main className="blog-terminal-surface">
+          <section className="blog-hero">
+            <h1>
+              <span className="blog-hero-cursor">_</span>
+              Welcome to <span className="blog-highlight">Cyber Masters Academy</span>
+            </h1>
+            <p className="blog-hero-sub">
+              <span className="blog-hero-mono"># Motivation. Mentorship. Momentum.</span>
+              <br />
+              <span>
+                Your journey in computer science starts here—with real guidance, encouragement, and a community that wants you to win.
+              </span>
+            </p>
+          </section>
+          <section className="blog-motivation-list">
+            {motivators.map((item, idx) => (
+              <div className="blog-motivation-item" key={idx}>
+                <span className="blog-motivation-icon">{item.icon}</span>
+                <div>
+                  <h2>{item.title}</h2>
+                  <p>{item.message}</p>
+                </div>
+              </div>
+            ))}
+          </section>
+          <section className="blog-banner">
+            <h3>🌟 Your Mentor’s Promise</h3>
+            <p>
+              At Cyber Masters Academy, you’re never just a number. We’re here to answer your questions, celebrate your wins, and help you overcome every obstacle.<br />
+              <span className="blog-highlight">Let’s reach your full potential—together.</span>
+            </p>
+          </section>
+        </main>
       </div>
-
-      <main className="blog">
-        <section className="hero">
-          <h1 className="hero-title">📚 Cyber Insights Blog</h1>
-          <p className="hero-subtitle">
-            Fresh stories, tutorials, and career tips for future tech leaders.
-          </p>
-        </section>
-
-        <section className="blog-entries">
-          {posts.map((post, index) => (
-            <div key={index} className="blog-card">
-              <h2>{post.title}</h2>
-        
-              <p>{post.description}</p>
-              <button className="cta-button">Read More</button>
-              <div className="reaction-buttons">
-              <p className="blog-date">📅 {post.date}</p>
-                <button onClick={() => handleLike(index)} className="like-button">❤️ {likes[index]}</button>
-                <button onClick={() => handleDislike(index)} className="dislike-button">💔 {dislikes[index]}</button>
-              </div>
-            </div>
-          ))}
-        </section>
-
-        <section className="blog-submission">
-          <h2 className="section-title">✍️ Submit Your Questions!</h2>
-          {submitted ? (
-            <p className="submission-message">✅ Blog Post Submitted for Approval!</p>
-          ) : (
-            <form onSubmit={handleSubmit} className="blog-form">
-              <div className="form-group">
-                <input
-                  type="text"
-                  placeholder="Blog Title"
-                  value={userPost.title}
-                  onChange={(e) => setUserPost({ ...userPost, title: e.target.value })}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <textarea
-                  placeholder="Blog Description"
-                  value={userPost.description}
-                  onChange={(e) => setUserPost({ ...userPost, description: e.target.value })}
-                  required
-                  rows="4"
-                />
-              </div>
-              <button type="submit" className="cta-button">Submit</button>
-            </form>
-          )}
-        </section>
-      </main>
+      <footer className="blog-email-footer" role="contentinfo">
+        <div className="blog-email-footer-content">
+          <h4>
+            <span className="blog-email-emoji" aria-hidden="true">📬</span>
+            <span className="blog-email-title-text">Join our <span className="blog-highlight">Email List</span></span>
+            <span className="blog-email-emoji" aria-hidden="true">🚀</span>
+          </h4>
+          <div className="blog-email-subtext">
+            <span>Get coding tips, new challenges, and exclusive updates. </span>
+          </div>
+        </div>
+        {!subscribed ? (
+          <div className="blog-email-input-container terminal-input">
+            <span className="prompt-sign">$</span>
+            <input
+              type="email"
+              placeholder="your@email.com"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              aria-label="Email address input"
+              autoComplete="email"
+            />
+            <button onClick={handleSubscribe} disabled={subscribed} type="button">
+              {subscribed ? "Subscribed" : "Join"}
+            </button>
+          </div>
+        ) : (
+          <div className="blog-subscribed-msg">🎉 You're subscribed!</div>
+        )}
+      </footer>
     </div>
   );
 }

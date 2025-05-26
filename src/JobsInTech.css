@@ -1,0 +1,294 @@
+/* --- JobsInTech Terminal Modern Styles --- */
+.jobs-terminal-root {
+  --primary-accent: #00d9ff;
+  --primary-accent-rgb: 0, 217, 255;
+  --success-accent: #00ff88;
+  --success-accent-rgb: 0, 255, 136;
+  --terminal-bg: #0d1117;
+  --terminal-surface: #161b22;
+  --terminal-border: #30363d;
+  --terminal-text: #e6edf3;
+  --terminal-text-muted: #7d8590;
+  --border-radius: 16px;
+  --border-radius-sm: 8px;
+  --font-mono: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', monospace;
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--terminal-bg);
+  min-height: 100vh;
+  color: var(--terminal-text);
+  font-family: var(--font-ui);
+}
+
+.jobs-terminal-header {
+  display: flex;
+  align-items: center;
+  background: var(--terminal-surface);
+  border-bottom: 2px solid var(--terminal-border);
+  padding: 1.2rem 2rem 1.2rem 1.5rem;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  box-shadow: 0 4px 24px 0 rgba(var(--primary-accent-rgb), 0.08);
+  position: relative;
+}
+
+.jobs-terminal-dots {
+  display: flex;
+  gap: 8px;
+  margin-right: 1.2rem;
+}
+.jobs-terminal-dots .dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px 2px rgba(0,0,0,0.12);
+}
+.jobs-terminal-dots .red { background: #ff5f57; }
+.jobs-terminal-dots .yellow { background: #febc2e; }
+.jobs-terminal-dots .green { background: #28ca42; }
+
+.jobs-terminal-title {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  color: var(--terminal-text-muted);
+  letter-spacing: 0.01em;
+}
+
+.jobs-terminal-surface {
+  background: var(--terminal-surface);
+  border-radius: var(--border-radius);
+  margin: 2.5rem auto 0;
+  max-width: 900px;
+  box-shadow: 0 8px 32px 0 rgba(var(--primary-accent-rgb), 0.10);
+  border: 1.5px solid var(--terminal-border);
+  padding: 2.5rem 2rem 2rem 2rem;
+}
+
+.jobs-hero {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.jobs-hero h1 {
+  font-family: var(--font-mono);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary-accent);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.jobs-hero-cursor {
+  color: var(--success-accent);
+  font-size: 1.6rem;
+  margin-right: 0.2em;
+  animation: blink-cursor 1.1s steps(1) infinite;
+}
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+.jobs-highlight {
+  background: linear-gradient(90deg, var(--primary-accent), var(--success-accent));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+.jobs-hero-sub {
+  font-size: 1.1rem;
+  color: var(--terminal-text-muted);
+  margin-bottom: 0.5rem;
+}
+.jobs-hero-mono {
+  font-family: var(--font-mono);
+  color: var(--success-accent);
+  font-size: 1.05em;
+}
+
+.rotating-job {
+  margin: 1.5rem auto 0 auto;
+  font-family: var(--font-mono);
+  font-size: 1.18rem;
+  color: var(--success-accent);
+  background: rgba(var(--primary-accent-rgb), 0.07);
+  border-radius: var(--border-radius-sm);
+  padding: 0.7em 1.2em;
+  display: inline-block;
+  box-shadow: 0 2px 12px 0 rgba(var(--primary-accent-rgb), 0.06);
+  animation: fadeIn 0.5s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.jobs-category-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.2rem;
+  margin: 2.5rem 0;
+}
+
+.jobs-category-card {
+  background: linear-gradient(90deg, rgba(var(--primary-accent-rgb), 0.08), rgba(var(--success-accent-rgb), 0.07));
+  border: 1.5px solid var(--terminal-border);
+  border-radius: var(--border-radius-sm);
+  padding: 1.5rem 1.5rem 1.2rem 1.5rem;
+  box-shadow: 0 2px 12px 0 rgba(var(--primary-accent-rgb), 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+  min-width: 0;
+  animation: fadeIn 0.7s;
+}
+.jobs-category-card:hover {
+  box-shadow: 0 4px 24px 0 rgba(var(--primary-accent-rgb), 0.13);
+  transform: translateY(-3px) scale(1.02);
+}
+
+.jobs-category-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  margin-bottom: 0.5em;
+}
+.jobs-category-icon {
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 8px rgba(var(--primary-accent-rgb), 0.10));
+}
+.jobs-category-title {
+  font-family: var(--font-mono);
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--primary-accent);
+}
+
+.jobs-list-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+}
+
+.job-card-modern {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  color: var(--terminal-text);
+  background: rgba(var(--primary-accent-rgb), 0.06);
+  border-radius: 6px;
+  padding: 0.5em 1em;
+  transition: background 0.18s, color 0.18s, transform 0.18s;
+  cursor: pointer;
+  border: none;
+}
+.job-card-modern:hover {
+  background: linear-gradient(90deg, var(--primary-accent), var(--success-accent));
+  color: #0d1117;
+  transform: scale(1.03);
+}
+.job-dot {
+  color: var(--primary-accent);
+  font-size: 1.2em;
+  margin-right: 0.2em;
+}
+.job-name-modern {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 800px) {
+  .jobs-terminal-surface {
+    max-width: 98vw;
+    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+  }
+  .jobs-hero h1 {
+    font-size: 1.3rem;
+  }
+  .jobs-category-card {
+    padding: 1rem 0.7rem;
+    font-size: 0.98rem;
+  }
+}
+.theme-dropdown-container {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.theme-dropdown {
+  background: var(--terminal-surface);
+  color: var(--terminal-text);
+  border: 1.5px solid var(--primary-accent);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  padding: 0.3em 1.2em 0.3em 0.7em;
+  margin-left: 1.5rem;
+  outline: none;
+  transition: border-color 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(var(--primary-accent-rgb), 0.10);
+  cursor: pointer;
+}
+.theme-dropdown:focus {
+  border-color: var(--success-accent);
+}
+
+/* Ubuntu Theme */
+.theme-ubuntu {
+  --primary-accent: #e95420;
+  --primary-accent-rgb: 233, 84, 32;
+  --success-accent: #77216f;
+  --success-accent-rgb: 119, 33, 111;
+  --terminal-bg: #300a24;
+  --terminal-surface: #2c001e;
+  --terminal-border: #77216f;
+  --terminal-text: #eeeeec;
+  --terminal-text-muted: #ad7fa8;
+}
+
+/* Cyber Masters Theme */
+.theme-cyber {
+  --primary-accent: #00d9ff;
+  --primary-accent-rgb: 0, 217, 255;
+  --success-accent: #00ff88;
+  --success-accent-rgb: 0, 255, 136;
+  --terminal-bg: #0d1117;
+  --terminal-surface: #161b22;
+  --terminal-border: #30363d;
+  --terminal-text: #e6edf3;
+  --terminal-text-muted: #7d8590;
+}
+
+/* PowerShell Theme */
+.theme-powershell {
+  --primary-accent: #00bcf2;
+  --primary-accent-rgb: 0, 188, 242;
+  --success-accent: #003776;
+  --success-accent-rgb: 0, 55, 118;
+  --terminal-bg: #012456;
+  --terminal-surface: #001a33;
+  --terminal-border: #00bcf2;
+  --terminal-text: #e5f6fd;
+  --terminal-text-muted: #7fdbff;
+}
+
+/* Black & White Theme */
+.theme-bw {
+  --primary-accent: #fff;
+  --primary-accent-rgb: 255, 255, 255;
+  --success-accent: #fff;
+  --success-accent-rgb: 255, 255, 255;
+  --terminal-bg: #111;
+  --terminal-surface: #181818;
+  --terminal-border: #fff;
+  --terminal-text: #fff;
+  --terminal-text-muted: #bbb;
+}
