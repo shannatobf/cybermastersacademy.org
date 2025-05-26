@@ -1,5 +1,6 @@
 {
   "name": "cybermastersacademy",
+  "homepage": "https://shannatobf.github.io/cybermastersacademy",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,7 +8,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.3.0",
