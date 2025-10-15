@@ -5,17 +5,17 @@ const highlights = [
   {
     icon: "🚀",
     title: "Mission",
-    text: "Empower everyone to master computer science, coding, and cybersecurity—no matter their background."
+    text: "Empower everyone to master computer science, coding, and cybersecurity."
   },
   {
     icon: "🧑‍💻",
-    title: "How We Teach",
-    text: "We blend hands-on coding, real-world challenges, and terminal-inspired design for a fun, immersive learning experience."
+    title: "Top Tier Research",
+    text: "We explore real-world challenges with a terminal-inspired design for a fun, immersive learning experience."
   },
   {
     icon: "🌐",
     title: "Open & Inclusive",
-    text: "All resources are free, open, and curated for beginners, career switchers, and lifelong learners."
+    text: "All resources are picked carefully: free, open, and curated for beginners, career switchers, and lifelong learners."
   },
   {
     icon: "🤝",
@@ -81,7 +81,7 @@ const themeVars = {
 const team = [
   {
     name: "Shanna Rowe",
-    role: "Founder & Lead Instructor",
+    role: "Founder && CEO",
     avatar: "/headshot.jpg",
     bio: "Passionate about making tech accessible. Loves Linux, open source, and teaching by example."
   },
@@ -89,7 +89,7 @@ const team = [
     name: "You?",
     role: "Contributor",
     avatar: "https://api.dicebear.com/7.x/identicon/svg?seed=contributor",
-    bio: "Want to help others learn? Reach out and join our mission!"
+    bio: "Want to get involved? Join our Email List!"
   }
 ];
 
