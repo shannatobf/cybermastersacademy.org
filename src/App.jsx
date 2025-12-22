@@ -77,7 +77,7 @@ function Header() {
             <span className="nav-icon"></span>Home
           </Link>
           <Link to="/about" className={location.pathname === "/about" ? "active" : ""} onClick={() => setMenuOpen(false)}>
-            <span className="nav-icon">?</span>About
+            <span className="nav-icon"></span>About
           </Link>
           <Link to="/courses" className={location.pathname === "/courses" ? "active" : ""} onClick={() => setMenuOpen(false)}>
             <span className="nav-icon"></span>Courses
@@ -132,7 +132,7 @@ function Home() {
         <div className="hero-content">
           <div className="hero-badge">
             <span className="badge-pulse"></span>
-            <span className="badge-text"> 2025 Learning Platform</span>
+            <span className="badge-text"> Computer Science Career Development and Learning Platform</span>
           </div>
           
           <h1 className="hero-title">
@@ -160,13 +160,13 @@ function Home() {
 
           <div className="hero-stats">
             <div className="stat-item">
-              <span className="stat-number">10K+</span>
-              <span className="stat-label">Active Learners</span>
+              <span className="stat-number">Explore</span>
+              <span className="stat-label">Computer Science realm</span>
             </div>
             <div className="stat-divider"></div>
             <div className="stat-item">
               <span className="stat-number">50+</span>
-              <span className="stat-label">Free Courses</span>
+              <span className="stat-label">Free Course Resources</span>
             </div>
             <div className="stat-divider"></div>
             <div className="stat-item">
@@ -351,7 +351,7 @@ function Home() {
         </div>
         <div className="footer-bottom">
           <p> 2025 Cyber Masters Academy. All rights reserved.</p>
-          <p className="footer-tagline">Built with  for the open source community</p>
+          <p className="footer-tagline">Built and designed by developers.</p>
         </div>
       </footer>
     </div>
